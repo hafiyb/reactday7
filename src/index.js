@@ -26,6 +26,7 @@ ReactDOM.render(
         <PersistGate loading={null} persistor={persistor}>
           <Switch>
             <Route path ="/home" component={App}></Route>
+            
             <Route path ="/register" component={Register}></Route>
 
             <Route path ="/" component={Login}></Route>
