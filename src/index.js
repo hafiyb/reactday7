@@ -3,10 +3,36 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import configureStore from './store'
+// import configureStore from './store/configureStore'
+import {Provider} from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react';
+import {store, persistor} from './store/configureStore'
+import Login from './containers/login';
+import Register from './containers/register';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+     <Router className="App bg-gray-500">
+      <Provider store={store} >
+        <PersistGate loading={null} persistor={persistor}>
+          <Switch>
+            <Route path ="/home" component={App}></Route>
+            <Route path ="/register" component={Register}></Route>
+
+            <Route path ="/" component={Login}></Route>
+          </Switch>
+        </PersistGate>
+      </Provider>
+    </ Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
