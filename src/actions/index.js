@@ -77,3 +77,9 @@ export const checkUser = (user) => {
     }
 }
 
+export const logoutUser = () => {
+    return{
+        type: type.LOGOUT_USER 
+    }
+}
+

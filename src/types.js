@@ -12,3 +12,5 @@ export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS'
 export const ADD_USER_FAIL = 'ADD_USER_FAIL'
 export const ADD_USER_RESET = 'ADD_USER_RESET'
 export const CHECK_USER = 'CHECK_USER'
+export const LOGOUT_USER = 'LOGOUT_USER'
+ 

@@ -37,6 +37,11 @@ const userReducer = (state = defaultState, action) =>{
                 status : status
             }
             // break
+        case type.LOGOUT_USER:
+            return  {
+                user: [...state.user],
+                status : false
+            }
         default:
             return state 
     }

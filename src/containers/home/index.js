@@ -1,6 +1,7 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import {connect} from 'react-redux'
-import { addSubmit, minusSubmit, addTodo, delTodo} from "../../actions";
+import { addSubmit, minusSubmit, addTodo, delTodo , logoutUser} from "../../actions";
 
 
 class Home extends React.Component{
@@ -40,6 +41,7 @@ class Home extends React.Component{
     render(){
         return(
             <div className="flex flex-col items-center justify-center" style={{height:'100vh'}}>
+                {this.props.user.status == false ? <Redirect to="/" /> : null} 
                 <h1 className>Count : {this.props.countData}</h1>
                 <div>
                     <button onClick={() => this.addCount()} className="rounded-lg border-2 border-black p-2 m-1">Increase</button>
@@ -63,9 +65,12 @@ class Home extends React.Component{
 
                         </li>)}
                         </ul>
-                        
+
                     </div>
+
                 </div>
+                <button className="border-black border-2 p-2 rounded-lg m-10" onClick={this.props.logoutUser}>Logout</button>
+
             </div>
         )
     }
@@ -74,13 +79,15 @@ class Home extends React.Component{
 const mapStateToProps = (state) =>({
     countData: state.count,
     todoData: state.todo,
-    removeData: state.remove
+    removeData: state.remove,
+    user: state.user
 })
 const mapDispatchToProps = {
     addSubmit: addSubmit,
     minusSubmit : minusSubmit,
     addTodo : addTodo,
-    delTodo : delTodo
+    delTodo : delTodo,
+    logoutUser : logoutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
