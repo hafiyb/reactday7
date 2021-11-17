@@ -25,7 +25,7 @@ class Login extends React.Component{
     }
     checkStatus(){
         if(this.props.user.status == true){
-            window.location.href = 'http://hafiyb.github.io/home'
+            window.location.href = 'http://hafiyb.github.io/reactday7/home'
         }
         console.log('historytest')
     }
