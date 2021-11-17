@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { checkUser } from "../../actions";
 import { useHistory } from "react-router";
@@ -25,7 +25,8 @@ class Login extends React.Component{
     }
     checkStatus(){
         if(this.props.user.status == true){
-            window.location.href = 'http://hafiyb.github.io/reactday7/home'
+            console.log('test');
+            // window.location.href = 'http://hafiyb.github.io/reactday7/home'
         }
         console.log('historytest')
     }
@@ -36,6 +37,9 @@ class Login extends React.Component{
         
         return(
             <div className='flex flex-col justify-center items-center ' style={{height:'100vh'}}>
+
+                {this.props.user.status == true ? <Redirect to="/home" /> : null} 
+
                 <h1 className="text-4xl m-10 border-b-2 border-black">Login</h1>
                 <div>
                     <input type="text" className="border-black border-b-2 p-2 mr-2" placeholder="Username" ref={(a)=> this._inputName = a}/>
