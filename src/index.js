@@ -25,7 +25,7 @@ ReactDOM.render(
       <Provider store={store} >
         <PersistGate loading={null} persistor={persistor}>
           <Switch>
-            <Route path ="/reactday7/home" component={App}></Route>
+            <Route path ="/home" component={App}></Route>
             
             <Route path ="/register" component={Register}></Route>
 
